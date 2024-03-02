@@ -1,10 +1,11 @@
 package sse
 
 import (
-	"github.com/google/uuid"
 	"net/http"
 	"sync"
 	"time"
+
+	"github.com/google/uuid"
 )
 
 type Broker[idType comparable] struct {
@@ -54,7 +55,8 @@ func (b *Broker[idType]) setHeaders(w http.ResponseWriter) {
 	w.Header().Set("Content-Type", "text/event-stream")
 	w.Header().Set("Cache-Control", "no-cache")
 	w.Header().Set("Connection", "keep-alive")
-	w.Header().Set("Transfer-Encoding", "chunked")
+	// Setting the Transfer-Encoding:chunked header directly might not be necessary or even recommended,
+	// as the server correctly handles the encoding based on how the response is written.
 
 	for k, v := range b.customHeaders {
 		w.Header().Set(k, v)

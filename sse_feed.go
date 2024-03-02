@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"io"
 	"net/http"
-	neturl "net/url"
+	"net/url"
 	"strings"
 	"sync"
 
@@ -41,13 +41,13 @@ type SSEFeed struct {
 	subscriptions    map[string]*Subscription
 	subscriptionsMtx sync.Mutex
 
-	stopChan        chan interface{}
+	stopChan        chan struct{}
 	closed          bool
 	unfinishedEvent *StringEvent
 }
 
-func ConnectWithSSEFeed(url string, headers map[string][]string) (*SSEFeed, error) {
-	parsedURL, err := neturl.Parse(url)
+func ConnectWithSSEFeed(feedURL string, headers map[string][]string) (*SSEFeed, error) {
+	parsedURL, err := url.Parse(feedURL)
 	if err != nil {
 		return nil, err
 	}
@@ -65,14 +65,14 @@ func ConnectWithSSEFeed(url string, headers map[string][]string) (*SSEFeed, erro
 	}
 
 	if resp.StatusCode != http.StatusOK {
-		return nil, fmt.Errorf("expected status code %d, got %d", http.StatusOK, resp.StatusCode)
+		return nil, fmt.Errorf("expected status code 200, got %d", resp.StatusCode)
 	}
 
 	reader := bufio.NewReader(resp.Body)
 
 	feed := &SSEFeed{
 		subscriptions: make(map[string]*Subscription),
-		stopChan:      make(chan interface{}),
+		stopChan:      make(chan struct{}),
 	}
 
 	go func(response *http.Response, feed *SSEFeed) {
@@ -107,7 +107,7 @@ func (s *SSEFeed) Close() {
 	}
 
 	close(s.stopChan)
-	for subId, _ := range s.subscriptions {
+	for subId := range s.subscriptions {
 		s.closeSubscription(subId)
 	}
 	s.closed = true
