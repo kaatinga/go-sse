@@ -69,7 +69,7 @@ writeLoop:
 			}
 			_, err := c.responseWriter.Write(msg)
 			if err != nil {
-				logger.Errorf("unable to write to client %v: %v", c.id, err.Error())
+				log().Errorf("unable to write to client %v: %v", c.id, err.Error())
 				break writeLoop
 			}
 			c.flusher.Flush()

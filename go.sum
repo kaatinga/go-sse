@@ -1,2 +1,12 @@
 github.com/google/uuid v1.6.0 h1:NIvaJDMOsjHA8n1jAhLSgzrAzy1Hgr+hNrb57e+94F0=
 github.com/google/uuid v1.6.0/go.mod h1:TIyPZe4MgqvfeYDBFedMoGGpEw/LqOeaOT+nhxU+yHo=
+github.com/kaatinga/dummylogger v0.0.0-20240316114057-455fe806ecef h1:dnkrbrDdK4m2ORdbIZtC4oEqrDIXC0duHn2vHEBZeWE=
+github.com/kaatinga/dummylogger v0.0.0-20240316114057-455fe806ecef/go.mod h1:72MV8ywMWsklRtup5brTtEJ37O99j0JIHuM28/SL+VI=
+github.com/kaatinga/dummylogger v0.0.0-20240316114528-4afbe33ed8ca h1:HKbk5t2gnNDiUF64pbb7GHVbaPk1y4rqARRGRGc7Aro=
+github.com/kaatinga/dummylogger v0.0.0-20240316114528-4afbe33ed8ca/go.mod h1:72MV8ywMWsklRtup5brTtEJ37O99j0JIHuM28/SL+VI=
+github.com/kaatinga/dummylogger v0.0.0-20240316114754-26f58560798b h1:ZPnMKLE/z6VZN+3VOmeyTIUms7TIF6hYV1WuS10lTR4=
+github.com/kaatinga/dummylogger v0.0.0-20240316114754-26f58560798b/go.mod h1:72MV8ywMWsklRtup5brTtEJ37O99j0JIHuM28/SL+VI=
+github.com/kaatinga/dummylogger v0.0.0-20240316115034-981bb9241f7c h1:KLmVEBU6vQlMcZxDcJAJBSdGImVNfb+Ps9jig4jkcGo=
+github.com/kaatinga/dummylogger v0.0.0-20240316115034-981bb9241f7c/go.mod h1:72MV8ywMWsklRtup5brTtEJ37O99j0JIHuM28/SL+VI=
+github.com/kaatinga/dummylogger v0.0.0-20240316120538-a909ef7ed66b h1:iMxAQylomxgNnjdDIuyUj4glmUhOR8gw9/hW1DOHrQ8=
+github.com/kaatinga/dummylogger v0.0.0-20240316120538-a909ef7ed66b/go.mod h1:72MV8ywMWsklRtup5brTtEJ37O99j0JIHuM28/SL+VI=

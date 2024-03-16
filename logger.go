@@ -1,32 +1,11 @@
 package sse
 
 import (
-	"log"
-	"sync"
+	"github.com/kaatinga/dummylogger"
 )
 
-type Logger interface {
-	Errorf(format string, v ...interface{})
-}
+var log = dummylogger.Get
 
-var logger = newDummyLogger()
-
-type dummyLoggerType struct{}
-
-func newDummyLogger() Logger {
-	return dummyLogger
-}
-
-func (d *dummyLoggerType) Errorf(format string, v ...interface{}) {
-	log.Printf(format, v...)
-}
-
-var dummyLogger = &dummyLoggerType{}
-
-var setLoggerOnce sync.Once
-
-func InitLogger(l Logger) {
-	setLoggerOnce.Do(func() {
-		logger = l
-	})
+func Init(logger dummylogger.I) {
+	dummylogger.Set(logger)
 }
